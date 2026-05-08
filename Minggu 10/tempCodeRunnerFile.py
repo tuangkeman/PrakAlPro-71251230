@@ -1,1 +1,0 @@
-'Minggu 10/file1.txt'

@@ -7,18 +7,12 @@ def gpw(length=8):
     return ''.join(random.choice(huruf) for _ in range(length))
 
 def egpw(text):
-    # Cari semua email
     emil = re.findall(r'\b[\w\.-]+@[\w\.-]+\.\w+\b', text)
     
     results = []
     for email in emil:
-        # Ambil username sebelum '@'
         username = email.split('@')[0]
-        
-        # Generate password random 8 karakter
         password = gpw()
-        
-        # Simpan hasil
         results.append(f"{email} username: {username} , password: {password}")
         
     return results
