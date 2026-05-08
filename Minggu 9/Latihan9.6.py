@@ -16,8 +16,6 @@ def egpw(text):
         results.append(f"{email} username: {username} , password: {password}")
         
     return results
-
-# Contoh penggunaan
 teks = """
 Berikut adalah daftar email dan nama pengguna dari mailing list:
 anton@mail.com dimiliki oleh antonius
