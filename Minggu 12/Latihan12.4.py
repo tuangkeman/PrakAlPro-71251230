@@ -1,20 +1,18 @@
-nama_file = input("Masukkan nama file : ")
 #Minggu 12\mbox-short.txt
+nama_file = input("Masukan nama file: ")
+
 counts = {}
 
 try:
     with open(nama_file) as f:
-        lines = f.readlines()
+        for line in f:
+            if line.startswith("From:"):
+                parts = line.split()
+                email = parts[1]
+                domain = email.split("@")[1]
+                counts[domain] = counts.get(domain, 0) + 1
 
-    for line in reversed(lines):
-        if line.startswith("From "):
-            parts = line.split()
-            email = parts[1]
-            domain = email.split("@")[1]
-            counts[domain] = counts.get(domain, 0) + 1
+    print(counts)
 
-except FileNotFoundError:
-    print("File tidak ditemukan")
-    exit()
-
-print(counts)
+except:
+    print("File cannot be opened:", nama_file)

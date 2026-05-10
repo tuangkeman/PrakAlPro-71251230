@@ -1,0 +1,6 @@
+b = [121, 144, 19, 161, 19, 144, 19, 11]
+c = []
+for i in b:
+    i =  i * i
+    c.append(i)
+print(c)
