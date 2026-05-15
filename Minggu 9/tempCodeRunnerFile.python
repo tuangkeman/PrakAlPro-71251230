@@ -1,0 +1,32 @@
+import re
+def check_root(strng):
+    pola= r"\d+"
+    noi = re.findall(pola, strng)
+    noi = "".join(noi)
+    hu = re.findall(r"\w", strng)
+    hu = "".join(hu)
+    noi = noi + hu
+    print(noi)
+    if noi.isdigit():
+        a = re.findall(r"\d+", strng)
+        a = list(map(int, a))
+        pan = len(a)
+        hasil = 1
+        for i in a:
+            hasil *= i
+        hasil += 1
+        p = hasil ** 0.5
+        if p % 1 == 0 :
+            akhir = str(hasil) + ", " + str(round(p))
+            return akhir
+        elif pan < 4 or pan >= 5:
+            return'incorrect input'
+        else:
+            return "not consecutive"
+    else:
+        return "incorrect input"
+print(check_root('4,5,6,7'))
+print(check_root('10,11,12,13,15'))
+print(check_root('4,5,6,q'))
+print(check_root('-4,-3,-2,-1'))
+print(check_root('-1,0,1,2'))
